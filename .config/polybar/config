@@ -18,15 +18,46 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
+[bar/bottomappbar]
+monitor = ${env:MONITOR:HDMI-1}
+width = 35%
+height = 30
+offset-x = 32%
+radius = 15.0
+fixed-center = true
+bottom = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 4
+
+padding-left = 2
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = Hack:pixelsize=10;1
+font-1 = Unifont:size=10:antialias=false;0
+font-2 = Font\ Awesome\ 5\ Pro:pixelsize=10;1
+
+modules-left = gmail
+modules-center = date
+modules-right = powermenu
+
+
 [bar/example]
 monitor = ${env:MONITOR:HDMI-1}
-monitor-fallback = ${env:MONITOR:VGA-1}
-width = 80%
+width = 55%
 height = 30
-offset-x = 9%
+offset-x = 22%
 ;offset-y = 1%
 radius = 15.0
-fixed-center = false
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -37,7 +68,7 @@ line-color = #f00
 border-size = 4
 ;border-color = #00000000
 
-padding-left = 0
+padding-left = 2
 padding-right = 2
 
 module-margin-left = 1
@@ -47,14 +78,15 @@ font-0 = Hack:pixelsize=10;1
 font-1 = Unifont:size=10:antialias=false;0
 font-2 = Font\ Awesome\ 5\ Pro:pixelsize=10;1
 
-modules-left = powermenu
-modules-center = date gmail
-modules-right = filesystem temperature cpu memory eth
+modules-left = filesystem
+modules-center = temperature cpu memory
+modules-right = eth
 
-tray-position =
+;tray-position =
 ;tray-padding = 2
 ;tray-transparent = true
 ;tray-background = #0063ff
+;tray-detached = true
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -100,7 +132,7 @@ interval = 25
 
 mount-0 = /
 
-label-mounted =  mounted %{F#0a81f5}%mountpoint%%{F-} |   %used%/%total%
+label-mounted =  mounted %{F#0a81f5}%mountpoint%%{F-} |  %used%/%total%
 ;label-mounted-underline = #1976d2
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
